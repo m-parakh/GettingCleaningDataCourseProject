@@ -10,7 +10,7 @@ activity labels, feature variable names, and training and test data sets.
 
 	# "activity_labels" is a data table containing "Activity_ID", "Activity_Name"
 		## "Activity_ID" has a number between 1 and 6 for each of the 6 activity types
-		## "Activity_Name" contains a description of the activity performed (e.g.. Walking)
+		## "Activity_Name" contains a description of the activity performed (e.g., Walking)
 
 	# "features" is a data table containing "Feature_ID", "Feature_Name"
 		## "Feature_ID" contains a number between 1 and 561 for each of the 561 feature variables
