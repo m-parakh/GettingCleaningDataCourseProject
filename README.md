@@ -1,4 +1,4 @@
-## Documentation for course project 
+## README for course project 
 
 ***
 The goal of this project was to clean and transform the
