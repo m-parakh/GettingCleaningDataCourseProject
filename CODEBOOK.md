@@ -1,9 +1,10 @@
-## Documentation for course project 
-## Getting and Cleaning Data, Coursera
+## CodeBook for course project 
 
+***
 The "run_analysis.R" script sources the other scripts described below.
 It calls functions from the other scripts to transform the provided data.
 
+***
 The "DataLoadingInR.R" script loads the data into R for 
 activity labels, feature variable names, and training and test data sets.
 
@@ -22,13 +23,13 @@ activity labels, feature variable names, and training and test data sets.
 
 	# "y_train" / "y_test" is a data table containing the "Activity_ID" for each record of the training / test data set
 
+***
 The "FeatureNaming.R" script contains a function nameFeatures(f) that
 replaces strings "-mean()", "-std()", "-X", "-Y", "-Z" 
 from feature variables with "MeanValue", "StDev", "DirX", "DirY", "DirZ".
 
 	# features_revised <- nameFeatures(features) createas a new data table 
 	containing a new column 'New_Feature_Name' for revised feature names.
-
 
 These revised names are then used as column names for X_train and X_test data sets
 to avoid errors later on during binding and subsetting of data sets.
@@ -37,6 +38,7 @@ to avoid errors later on during binding and subsetting of data sets.
 
 	# names(X_test) <- features_revised$New_Feature_Name
 
+***
 The "DataBinding.R" script contains a function bindData() that creates a 
 merged set of training and test data.
 	
@@ -48,6 +50,7 @@ merged set of training and test data.
 
 	# Then these two datasets are appended together to return the mergedData.
 
+***
 The "DataExtraction.R" script contains a function extractDataSubset() that
 subsets the merged data set to only include the variable columns that contain
 the mean and standard deviation of measurements. My approach is not optimal -- 
@@ -83,16 +86,19 @@ getting errors, so finally took this route.
 	std_dataset <- mergedData[, std_cols] creates a data subset from 'mergedData'
 	to extract only the standard deviation features
 
+***
 The "ActivityNaming.R" script contains a function that merges the activity names with
 the the extracted relevant data subset.
 
 	# activitynameData <- includeActivityNames() attaches the activity names to the 'relevantData' data table
 
+***
 The "TidyDataCreation.R" script contains a function createTidyData() that uses the
 the melt and dcast functions from the Reshape2 package to create a wide tidy data set.
 
 	# tidyData <- createTidyData() summarizes the mean of all included variables by 'Activity_Name' and 'Subject_Id'
 
+***
 This tidy data set is then written out to a text file.
 
 
